@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Flask Auth{% endblock %}</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+            rel="stylesheet">
+        <style>
+                body {
+                    background: radial-gradient(circle, #111 0%, #000 100%);
+                    color: gold;
+                    font-family: 'Courier New', Courier, monospace;
+                }
+                
+                .text-gold {
+                    color: gold;
+                }
+                
+                .casino-form {
+                    background: #222;
+                    padding: 20px;
+                    border-radius: 15px;
+                    box-shadow: 0 0 15px gold;
+                }
+                
+                .casino-input {
+                    background-color: #333;
+                    color: gold;
+                    border: 1px solid gold;
+                }
+                
+                .btn-casino {
+                    background-color: #000;
+                    border: 2px solid gold;
+                    color: gold;
+                    font-weight: bold;
+                    transition: 0.3s;
+                }
+                .btn-casino:hover {
+                    background-color: gold;
+                    color: #000;
+                    transform: scale(1.05);
+                    box-shadow: 0 0 15px gold;
+                }
+        </style>
+
+    </head>
+    <body class="bg-light">
+        <div class="container mt-5">
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for msg in messages %}
+            <div class="alert alert-warning">{{ msg }}</div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+            {% block content %}{% endblock %}
+        </div>
+    </body>
+</html>

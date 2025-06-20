@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}My Profile 💼{% endblock %}
+{% block content %}
+<div class="casino-box">
+    <h2>🧾 Update Profile</h2>
+    <form method="POST">
+        <div class="mb-3">
+            <label>Email</label>
+            <input name="email" class="form-control" value="{{ user.email }}">
+        </div>
+        <button class="btn btn-gold">Update</button>
+        <a href="{{ url_for('auth.dashboard') }}" class="btn btn-link text-warning">Back</a>
+    </form>
+</div>
+{% endblock %}
