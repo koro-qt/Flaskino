@@ -1,0 +1,10 @@
+modules = ["web", "python-3.12"]
+
+[nix]
+channel = "stable-24_05"
+packages = ["sqlite"]
+
+[[ports]]
+localPort = 5000
+externalPort = 80
+exposeLocalhost = true

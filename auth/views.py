@@ -6,6 +6,12 @@ from flask import jsonify
 
 auth_bp = Blueprint('auth', __name__)
 
+
+@auth_bp.route('/')
+def index():
+    return redirect(url_for('auth.login'))
+
+
 @auth_bp.route('/update_balance', methods=['POST'])
 @login_required
 def update_balance():
@@ -17,6 +23,7 @@ def update_balance():
         return jsonify({'success': True, 'balance': user.balance})
     return jsonify({'success': False, 'error': 'Invalid balance'}), 400
 
+
 @auth_bp.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
@@ -27,6 +34,7 @@ def register():
             return redirect(url_for('auth.login'))
         flash('Username already exists.')
     return render_template('register.html')
+
 
 @auth_bp.route('/login', methods=['GET', 'POST'])
 def login():
@@ -40,10 +48,12 @@ def login():
         flash('Invalid credentials.')
     return render_template('login.html')
 
+
 @auth_bp.route('/dashboard')
 @login_required
 def dashboard():
     return render_template('dashboard.html', user=current_user)
+
 
 @auth_bp.route('/profile', methods=['GET', 'POST'])
 @login_required
@@ -55,6 +65,7 @@ def profile():
         return redirect(url_for('auth.profile'))
     return render_template('profile.html', user=current_user)
 
+
 @auth_bp.route('/delete_account', methods=['POST'])
 @login_required
 def delete_account():
@@ -62,6 +73,7 @@ def delete_account():
     logout_user()
     flash('Account deleted.')
     return redirect(url_for('auth.login'))
+
 
 @auth_bp.route('/logout')
 @login_required
