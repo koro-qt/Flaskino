@@ -12,6 +12,7 @@
                     background: radial-gradient(circle, #111 0%, #000 100%);
                     color: gold;
                     font-family: 'Courier New', Courier, monospace;
+                    font-size: 18px;
                 }
                 
                 .text-gold {
@@ -47,54 +48,91 @@
 
                 /* Mobile responsive styles */
                 @media (max-width: 768px) {
+                    body {
+                        font-size: 20px;
+                    }
+
                     .container {
-                        padding: 10px;
+                        padding: 15px;
                         margin-top: 20px !important;
                     }
 
                     .casino-form {
-                        padding: 15px;
+                        padding: 20px;
                         margin: 0 10px;
                     }
 
                     .btn {
-                        font-size: 16px;
-                        padding: 12px 20px;
+                        font-size: 18px;
+                        padding: 15px 25px;
+                        min-height: 50px;
                     }
 
                     .form-control {
-                        font-size: 16px;
-                        padding: 12px;
+                        font-size: 18px;
+                        padding: 15px;
+                        min-height: 50px;
                     }
 
                     h1, h2 {
-                        font-size: 1.5rem;
+                        font-size: 2rem;
                     }
 
                     h3, h4 {
-                        font-size: 1.25rem;
+                        font-size: 1.5rem;
+                    }
+
+                    label {
+                        font-size: 1.1rem;
+                        font-weight: bold;
+                    }
+
+                    .alert {
+                        font-size: 1.1rem;
+                        padding: 15px;
                     }
                 }
 
                 @media (max-width: 480px) {
+                    body {
+                        font-size: 22px;
+                    }
+
                     .container {
-                        padding: 5px;
+                        padding: 10px;
                         margin-top: 10px !important;
                     }
 
                     .casino-form {
-                        padding: 10px;
+                        padding: 15px;
                         margin: 0 5px;
                     }
 
                     .btn {
-                        font-size: 14px;
-                        padding: 10px 15px;
+                        font-size: 20px;
+                        padding: 18px 30px;
+                        min-height: 55px;
                     }
 
                     .form-control {
-                        font-size: 14px;
-                        padding: 10px;
+                        font-size: 20px;
+                        padding: 18px;
+                        min-height: 55px;
+                    }
+
+                    h1, h2 {
+                        font-size: 2.2rem;
+                    }
+
+                    h3, h4 {
+                        font-size: 1.7rem;
+                    }
+
+                    label {
+                        font-size: 1.2rem;
+                        font-weight: bold;
+                        margin-bottom: 8px;
+                        display: block;
                     }
                 }
         </style>
