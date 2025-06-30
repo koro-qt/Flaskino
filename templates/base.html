@@ -1,208 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{% block title %}Flask Auth{% endblock %}</title>
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-            rel="stylesheet">
-        <style>
-                body {
-                    background: radial-gradient(circle, #111 0%, #000 100%);
-                    color: gold;
-                    font-family: 'Courier New', Courier, monospace;
-                    font-size: 18px;
-                }
-                
-                .text-gold {
-                    color: gold;
-                }
-                
-                .casino-form {
-                    background: #222;
-                    padding: 20px;
-                    border-radius: 15px;
-                    box-shadow: 0 0 15px gold;
-                }
-                
-                .casino-input {
-                    background-color: #333;
-                    color: gold;
-                    border: 1px solid gold;
-                }
-                
-                .btn-casino {
-                    background-color: #000;
-                    border: 2px solid gold;
-                    color: gold;
-                    font-weight: bold;
-                    transition: 0.3s;
-                }
-                .btn-casino:hover {
-                    background-color: gold;
-                    color: #000;
-                    transform: scale(1.05);
-                    box-shadow: 0 0 15px gold;
-                }
 
-                /* High-resolution mobile (like 2400x1080) */
-                @media (max-width: 2500px) and (max-height: 1200px) and (orientation: landscape) {
-                    body {
-                        font-size: 28px !important;
-                    }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Flask Auth{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: radial-gradient(circle, #111 0%, #000 100%);
+            color: gold;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 18px;
+        }
 
-                    .container {
-                        padding: 25px;
-                        margin-top: 30px !important;
-                        max-width: 90%;
-                    }
+        .text-gold {
+            color: gold;
+        }
 
-                    .casino-form {
-                        padding: 35px;
-                        margin: 0 20px;
-                    }
+        .casino-form {
+            background: #222;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px gold;
+        }
 
-                    .btn {
-                        font-size: 24px !important;
-                        padding: 20px 35px !important;
-                        min-height: 70px !important;
-                    }
+        .casino-input {
+            background-color: #333;
+            color: gold;
+            border: 1px solid gold;
+        }
 
-                    .form-control {
-                        font-size: 24px !important;
-                        padding: 20px !important;
-                        min-height: 70px !important;
-                    }
+        .btn-casino {
+            background-color: #000;
+            border: 2px solid gold;
+            color: gold;
+            font-weight: bold;
+            transition: 0.3s;
+        }
 
-                    h1, h2 {
-                        font-size: 2.8rem !important;
-                    }
+        .btn-casino:hover {
+            background-color: gold;
+            color: #000;
+            transform: scale(1.05);
+            box-shadow: 0 0 15px gold;
+        }
 
-                    h3, h4 {
-                        font-size: 2.2rem !important;
-                    }
+        /* High-resolution mobile (like 2400x1080) */
+        @media (max-width: 2500px) and (max-height: 1200px) and (orientation: portrait) {
+            body {
+                font-size: 28px !important;
+            }
 
-                    label {
-                        font-size: 1.4rem !important;
-                        font-weight: bold;
-                        margin-bottom: 12px;
-                        display: block;
-                    }
+            .container {
+                padding: 25px;
+                margin-top: 30px !important;
+                max-width: 90%;
+            }
 
-                    .alert {
-                        font-size: 1.4rem !important;
-                        padding: 20px;
-                    }
+            .casino-form {
+                padding: 35px;
+                margin: 0 20px;
+            }
 
-                    p {
-                        font-size: 1.2rem !important;
-                        line-height: 1.6;
-                    }
-                }
+            .btn {
+                font-size: 24px !important;
+                padding: 20px 35px !important;
+                min-height: 70px !important;
+            }
 
-                /* Standard mobile responsive styles */
-                @media (max-width: 768px) {
-                    body {
-                        font-size: 20px;
-                    }
+            .form-control {
+                font-size: 24px !important;
+                padding: 20px !important;
+                min-height: 70px !important;
+            }
 
-                    .container {
-                        padding: 15px;
-                        margin-top: 20px !important;
-                    }
+            h1,
+            h2 {
+                font-size: 2.8rem !important;
+            }
 
-                    .casino-form {
-                        padding: 20px;
-                        margin: 0 10px;
-                    }
+            h3,
+            h4 {
+                font-size: 2.2rem !important;
+            }
 
-                    .btn {
-                        font-size: 18px;
-                        padding: 15px 25px;
-                        min-height: 50px;
-                    }
+            label {
+                font-size: 1.4rem !important;
+                font-weight: bold;
+                margin-bottom: 12px;
+                display: block;
+            }
 
-                    .form-control {
-                        font-size: 18px;
-                        padding: 15px;
-                        min-height: 50px;
-                    }
+            .alert {
+                font-size: 1.4rem !important;
+                padding: 20px;
+            }
 
-                    h1, h2 {
-                        font-size: 2rem;
-                    }
+            p {
+                font-size: 1.2rem !important;
+                line-height: 1.6;
+            }
+        }
 
-                    h3, h4 {
-                        font-size: 1.5rem;
-                    }
+        /* Standard mobile responsive styles */
+        @media (max-width: 768px) {
+            body {
+                font-size: 20px;
+            }
 
-                    label {
-                        font-size: 1.1rem;
-                        font-weight: bold;
-                    }
+            .container {
+                padding: 15px;
+                margin-top: 20px !important;
+            }
 
-                    .alert {
-                        font-size: 1.1rem;
-                        padding: 15px;
-                    }
-                }
+            .casino-form {
+                padding: 20px;
+                margin: 0 10px;
+            }
 
-                @media (max-width: 480px) {
-                    body {
-                        font-size: 22px;
-                    }
+            .btn {
+                font-size: 18px;
+                padding: 15px 25px;
+                min-height: 50px;
+            }
 
-                    .container {
-                        padding: 10px;
-                        margin-top: 10px !important;
-                    }
+            .form-control {
+                font-size: 18px;
+                padding: 15px;
+                min-height: 50px;
+            }
 
-                    .casino-form {
-                        padding: 15px;
-                        margin: 0 5px;
-                    }
+            h1,
+            h2 {
+                font-size: 2rem;
+            }
 
-                    .btn {
-                        font-size: 20px;
-                        padding: 18px 30px;
-                        min-height: 55px;
-                    }
+            h3,
+            h4 {
+                font-size: 1.5rem;
+            }
 
-                    .form-control {
-                        font-size: 20px;
-                        padding: 18px;
-                        min-height: 55px;
-                    }
+            label {
+                font-size: 1.1rem;
+                font-weight: bold;
+            }
 
-                    h1, h2 {
-                        font-size: 2.2rem;
-                    }
+            .alert {
+                font-size: 1.1rem;
+                padding: 15px;
+            }
+        }
 
-                    h3, h4 {
-                        font-size: 1.7rem;
-                    }
+        @media (max-width: 480px) {
+            body {
+                font-size: 22px;
+            }
 
-                    label {
-                        font-size: 1.2rem;
-                        font-weight: bold;
-                        margin-bottom: 8px;
-                        display: block;
-                    }
-                }
-        </style>
+            .container {
+                padding: 10px;
+                margin-top: 10px !important;
+            }
 
-    </head>
-    <body class="bg-light">
-        <div class="container mt-5">
-            {% with messages = get_flashed_messages() %}
-            {% if messages %}
-            {% for msg in messages %}
-            <div class="alert alert-warning">{{ msg }}</div>
-            {% endfor %}
-            {% endif %}
-            {% endwith %}
-            {% block content %}{% endblock %}
-        </div>
-    </body>
+            .casino-form {
+                padding: 15px;
+                margin: 0 5px;
+            }
+
+            .btn {
+                font-size: 20px;
+                padding: 18px 30px;
+                min-height: 55px;
+            }
+
+            .form-control {
+                font-size: 20px;
+                padding: 18px;
+                min-height: 55px;
+            }
+
+            h1,
+            h2 {
+                font-size: 2.2rem;
+            }
+
+            h3,
+            h4 {
+                font-size: 1.7rem;
+            }
+
+            label {
+                font-size: 1.2rem;
+                font-weight: bold;
+                margin-bottom: 8px;
+                display: block;
+            }
+        }
+    </style>
+
+</head>
+
+<body class="bg-light">
+    <div class="container mt-5">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for msg in messages %}
+        <div class="alert alert-warning">{{ msg }}</div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </div>
+</body>
+
 </html>
